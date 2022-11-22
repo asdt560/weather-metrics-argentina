@@ -1,28 +1,33 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import BuenosAires from './components/BuenosAires';
+import Cordoba from './components/Cordoba';
+import Laplata from './components/Laplata';
+import Mardelplata from './components/Mardelplata';
+import Salta from './components/Salta';
+import Rosario from './components/Rosario';
+import Santafe from './components/Santafe';
+import Tucuman from './components/Tucuman';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/buenosaires" element={<BuenosAires />} />
+          <Route path="/cordoba" element={<Cordoba />} />
+          <Route path="/laplata" element={<Laplata />} />
+          <Route path="/rosario" element={<Rosario />} />
+          <Route path="/santafe" element={<Santafe />} />
+          <Route path="/salta" element={<Salta />} />
+          <Route path="/mardelplata" element={<Mardelplata />} />
+          <Route path="/sanmigueldetucuman" element={<Tucuman />} />
+        </Routes>
+      </Router>
     </div>
+
   );
 }
 
