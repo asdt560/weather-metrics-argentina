@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { ImCompass } from 'react-icons/im';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { getWeatherData } from '../redux/home/homeSlice';
+import { NavLink, useParams } from 'react-router-dom';
+import { getWeatherData } from '../redux/weather/weatherSlice';
 
-const BuenosAires = () => {
+const WeatherDetails = () => {
+  const { cityname } = useParams();
+  console.log(cityname);
   const dispatch = useDispatch();
-  const cities = useSelector((state) => state.homeReducer.cities);
+  const cities = useSelector((state) => state.weatherReducer.cities);
   useEffect(() => {
     if (cities.length === 0) {
       dispatch(getWeatherData());
@@ -16,7 +18,9 @@ const BuenosAires = () => {
     const result = degree - 45;
     return result;
   };
-  const city = cities.filter((city) => city.name === 'Buenos Aires');
+  console.log(cities);
+  const city = cities.filter((city) => city.name === `${cityname}`);
+  console.log(city);
   return (
     <div>
       {city.map((city) => (
@@ -24,16 +28,19 @@ const BuenosAires = () => {
           key={city.name}
         >
           <div className="topbar">
-            <NavLink className="backlink" to="/">&lt;</NavLink>
-            <h1>{city[0].name}</h1>
+            <NavLink className="backlink" to="/weather">&lt;</NavLink>
+            <h1>{city.name}</h1>
           </div>
-          <h2>{city[0].weather[0].main}</h2>
+          <h2>
+            <p>Weather:</p>
+            <p>{city.weather[0].main}</p>
+          </h2>
           <ul className="infolist">
             <li>
               <div className="category">
                 <p>Temperature</p>
                 <p>
-                  {Math.round((city[0].main.temp - 273.15) * 10) / 10}
+                  {Math.round((city.main.temp - 273.15) * 10) / 10}
                   {' '}
                   {'\u2103'}
                 </p>
@@ -41,7 +48,7 @@ const BuenosAires = () => {
               <div className="subelement">
                 <p>Feels Like</p>
                 <p>
-                  {Math.round((city[0].main.feels_like - 273.15) * 10) / 10}
+                  {Math.round((city.main.feels_like - 273.15) * 10) / 10}
                   {' '}
                   {'\u2103'}
                 </p>
@@ -49,7 +56,7 @@ const BuenosAires = () => {
               <div className="subelement">
                 <p>Minimal</p>
                 <p>
-                  {Math.round((city[0].main.temp_min - 273.15) * 10) / 10}
+                  {Math.round((city.main.temp_min - 273.15) * 10) / 10}
                   {' '}
                   {'\u2103'}
                 </p>
@@ -57,7 +64,7 @@ const BuenosAires = () => {
               <div className="subelement">
                 <p>Maximal</p>
                 <p>
-                  {Math.round((city[0].main.temp_max - 273.15) * 10) / 10}
+                  {Math.round((city.main.temp_max - 273.15) * 10) / 10}
                   {' '}
                   {'\u2103'}
                 </p>
@@ -67,35 +74,35 @@ const BuenosAires = () => {
           <div className="category">
             <p>Wind</p>
             <p>
-              {city[0].wind.speed}
+              {city.wind.speed}
               {' '}
               m/s
             </p>
             {' '}
             <p>
-              <ImCompass style={{ transform: `rotate(${spin(city[0].wind.deg)}deg)` }} />
+              <ImCompass style={{ transform: `rotate(${spin(city.wind.deg)}deg)` }} />
             </p>
           </div>
           <div className="category">
             <p>Pressure</p>
             <p>
-              {city[0].main.pressure}
+              {city.main.pressure}
               {' '}
               hPa
             </p>
           </div>
           <div className="category">
-            <p>Humidity[0]</p>
+            <p>Humidity</p>
             <p>
-              {city[0].main.humidity}
+              {city.main.humidity}
               {' '}
               %
             </p>
           </div>
           <div className="category">
-            <p>Visibility[0]</p>
+            <p>Visibility</p>
             <p>
-              {city[0].visibility[0] / 1000}
+              {city.visibility / 1000}
               {' '}
               km
             </p>
@@ -106,4 +113,4 @@ const BuenosAires = () => {
   );
 };
 
-export default BuenosAires;
+export default WeatherDetails;

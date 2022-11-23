@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import homeReducer from './home/homeSlice';
+import weatherReducer from './weather/weatherSlice';
+import pollutionReducer from './pollution/pollutionSlice';
 
 const store = configureStore({
   reducer: {
-    homeReducer,
+    pollutionReducer,
+    weatherReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

@@ -1,13 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Weather from './components/Weather';
+import WeatherDetails from './components/WeatherDetails';
 import Home from './components/Home';
-import BuenosAires from './components/BuenosAires';
-import Cordoba from './components/Cordoba';
-import Laplata from './components/Laplata';
-import Mardelplata from './components/Mardelplata';
-import Salta from './components/Salta';
-import Rosario from './components/Rosario';
-import Santafe from './components/Santafe';
-import Tucuman from './components/Tucuman';
+import Pollution from './components/Pollution';
+import PollutionDetails from './components/PollutionDetails';
 import './App.css';
 
 function App() {
@@ -16,14 +12,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/buenosaires" element={<BuenosAires />} />
-          <Route path="/cordoba" element={<Cordoba />} />
-          <Route path="/laplata" element={<Laplata />} />
-          <Route path="/rosario" element={<Rosario />} />
-          <Route path="/santafe" element={<Santafe />} />
-          <Route path="/salta" element={<Salta />} />
-          <Route path="/mardelplata" element={<Mardelplata />} />
-          <Route path="/sanmigueldetucuman" element={<Tucuman />} />
+          <Route path="/weather" element={<Weather />} />
+          <Route path="/weatherdetails/:cityname" element={<WeatherDetails />} />
+          <Route path="/pollutiondetails/:cityname" element={<PollutionDetails />} />
+          <Route path="/pollution" element={<Pollution />} />
         </Routes>
       </Router>
     </div>
