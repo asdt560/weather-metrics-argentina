@@ -12,25 +12,29 @@ const Weather = () => {
       dispatch(getWeatherData());
     }
   });
-  let filtered = cities;
+  let filtered = cities.list;
   if (search !== '') {
-    filtered = cities.filter((city) => city.name.toLowerCase().includes(search.toLowerCase()));
+    // eslint-disable-next-line max-len
+    filtered = [cities.list.filter((city) => city.name.toLowerCase().includes(search.toLowerCase()))];
   }
   return (
     <div>
-      Weather!
-      <NavLink className="backlink" to="/">&lt;</NavLink>
+      <div className="topbar">
+        <NavLink className="backlink" to="/">&lt;</NavLink>
+        <h1 className="sectiontitle">Weather Data</h1>
+      </div>
       <div>
         <input
+          className="searchbar"
           placeholder="Find City..."
           onChange={(event) => setSearch(event.target.value)}
         />
       </div>
-      {filtered.map((city) => {
+      {filtered?.map((city) => {
         const { name } = city;
         return (
           <NavLink
-            className="citydiv"
+            className="citydiv navlink"
             key={city.id}
             to={`/weatherdetails/${name}`}
           >

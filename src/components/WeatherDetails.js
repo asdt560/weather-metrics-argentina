@@ -6,7 +6,6 @@ import { getWeatherData } from '../redux/weather/weatherSlice';
 
 const WeatherDetails = () => {
   const { cityname } = useParams();
-  console.log(cityname);
   const dispatch = useDispatch();
   const cities = useSelector((state) => state.weatherReducer.cities);
   useEffect(() => {
@@ -18,9 +17,7 @@ const WeatherDetails = () => {
     const result = degree - 45;
     return result;
   };
-  console.log(cities);
-  const city = cities.filter((city) => city.name === `${cityname}`);
-  console.log(city);
+  const city = cities.list.filter((city) => city.name === `${cityname}`);
   return (
     <div>
       {city.map((city) => (
@@ -29,11 +26,11 @@ const WeatherDetails = () => {
         >
           <div className="topbar">
             <NavLink className="backlink" to="/weather">&lt;</NavLink>
-            <h1>{city.name}</h1>
+            <h1 className="sectiontitle">{city.name}</h1>
           </div>
-          <h2>
-            <p>Weather:</p>
-            <p>{city.weather[0].main}</p>
+          <h2 className="weathersummary">
+            <p className="leftweather">Weather:</p>
+            <p className="centerweather">{city.weather[0].main}</p>
           </h2>
           <ul className="infolist">
             <li>

@@ -1,22 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const cities = [
-  'https://api.openweathermap.org/data/2.5/weather?q=Buenos+Aires,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-  'https://api.openweathermap.org/data/2.5/weather?q=Cordoba,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-  'https://api.openweathermap.org/data/2.5/weather?q=Rosario,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-  'https://api.openweathermap.org/data/2.5/weather?q=La+Plata,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-  'https://api.openweathermap.org/data/2.5/weather?q=Mar+del+Plata,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-  'https://api.openweathermap.org/data/2.5/weather?q=Salta,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-  'https://api.openweathermap.org/data/2.5/weather?q=San+Miguel+de+Tucuman,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-  'https://api.openweathermap.org/data/2.5/weather?q=Santa+Fe,ar&APPID=56b4f9108ee9c04db470ddaf8abcaea6',
-];
-
 const getWeatherData = createAsyncThunk('/getWeather', async () => {
-  const weather = await Promise.all(cities.map(async (city) => {
-    const resp = await fetch(city);
-    return resp.json();
-  }));
-  return weather;
+  const resp = await fetch('http://api.openweathermap.org/data/2.5/group?id=3435910,3860259,3838583,3432043,3430863,3838233,3836873,3836277&units;=metric&appid=56b4f9108ee9c04db470ddaf8abcaea6');
+  const data = resp.json();
+  console.log(data);
+  return data;
 });
 
 const weatherSlice = createSlice({

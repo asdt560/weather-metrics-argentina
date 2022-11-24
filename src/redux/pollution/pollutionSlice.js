@@ -56,7 +56,6 @@ const getPollutionData = createAsyncThunk('/getPollution', async () => {
       name: cities[index].name,
     });
   });
-  console.log(result);
   return result;
 });
 

@@ -20,10 +20,13 @@ const Pollution = () => {
   }
   return (
     <div>
-      Pollution!
-      <NavLink className="backlink" to="/">&lt;</NavLink>
+      <div className="topbar">
+        <NavLink className="backlink" to="/">&lt;</NavLink>
+        <h1 className="sectiontitle">Pollution Data</h1>
+      </div>
       <div>
         <input
+          className="searchbar"
           placeholder="Find City..."
           onChange={(event) => setSearch(event.target.value)}
         />
@@ -32,7 +35,7 @@ const Pollution = () => {
         const { name } = city;
         return (
           <NavLink
-            className="citydiv"
+            className="citydiv navlink"
             key={uuidv4()}
             to={`/pollutiondetails/${name}`}
           >
