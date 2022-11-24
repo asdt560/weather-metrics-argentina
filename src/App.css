@@ -6,12 +6,26 @@
 .citydiv {
   display: flex;
   justify-content: space-between;
+  color: white;
+  font-weight: 700;
+  padding: 0.5rem;
+}
+
+.citydiv:nth-child(2n) {
+  background-color: #3e61a3;
 }
 
 .category {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem;
+  color: white;
+  font-weight: 700;
+  background-color: #4066ad;
+}
+
+.category:nth-child(2n) {
+  background-color: #3c5fa1;
 }
 
 .infolist {
@@ -23,8 +37,16 @@
 .subelement {
   display: flex;
   justify-content: space-between;
-  margin-left: 2.5rem;
-  margin-right: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: #456db8;
+}
+
+.subelement:nth-child(2n) {
+  background-color: #5079c5;
 }
 
 .backlink {
@@ -34,6 +56,7 @@
   align-items: center;
   margin-bottom: 3px;
   position: absolute;
+  color: white;
 }
 
 .topbar {
@@ -41,22 +64,103 @@
   align-items: center;
   position: relative;
   padding: 0.5rem;
+  background-color: #3e61a3;
 }
 
 h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+}
+
+.sectiontitle {
   margin: 0;
   margin-left: auto;
   margin-right: auto;
   font-size: 1rem;
+  color: white;
 }
 
-h2 {
-  width: 60vw;
+.aqi {
   display: flex;
   justify-content: space-around;
   margin: 0;
+  color: white;
 }
 
-h2 > p {
-  margin-bottom: 0;
+.weathersummary {
+  display: flex;
+  position: relative;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  background-color: #5687e3;
+}
+
+.leftweather {
+  position: absolute;
+  padding-left: 5px;
+}
+
+.centerweather {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchbar {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #4369b2;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.linkscontainer {
+  background-color: #1c1c1c;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.linkdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45vw;
+  height: 45vw;
+  color: white;
+}
+
+.linkimg {
+  width: 25vw;
+  background-color: #1c1c1c;
+  height: 25vw;
+}
+
+.pol {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.navlink {
+  text-decoration: none;
+}
+
+h3 {
+  color: white;
+  text-align: center;
 }
