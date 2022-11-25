@@ -15,7 +15,7 @@ const Weather = () => {
   let filtered = cities.list;
   if (search !== '') {
     // eslint-disable-next-line max-len
-    filtered = [cities.list.filter((city) => city.name.toLowerCase().includes(search.toLowerCase()))];
+    filtered = cities.list.filter((city) => city.name.toLowerCase().includes(search.toLowerCase()));
   }
   return (
     <div>
