@@ -23,7 +23,7 @@
 
 # 📖 weather-metrics-argentina <a name="about-project"></a>
 
-**[weather-metrics-argentina]** is a mobile-first application which displays weather data for a list of cities, pulled from the OpenWeather API. It also displays air pollution data for the same. Currently only displays data for a small number of cities, given the amount of requests the API allows and the need to request pollution data for each city individually.
+**weather-metrics-argentina** is a mobile-first application which displays weather data for a list of cities, pulled from the OpenWeather API. It also displays air pollution data for the same. Currently only displays data for a small number of cities, given the amount of requests the API allows and the need to request pollution data for each city individually.
 
 ## 🛠 Built With <a name="built-with"></a>
 
