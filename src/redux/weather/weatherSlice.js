@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const getWeatherData = createAsyncThunk('/getWeather', async () => {
   const resp = await fetch('http://api.openweathermap.org/data/2.5/group?id=3435910,3860259,3838583,3432043,3430863,3838233,3836873,3836277&units;=metric&appid=56b4f9108ee9c04db470ddaf8abcaea6');
   const data = resp.json();
-  console.log(data);
   return data;
 });
 
