@@ -45,7 +45,7 @@ const cities = [
 
 const getPollutionData = createAsyncThunk('/getPollution', async () => {
   const pollution = await Promise.all(cities.map(async (city) => {
-    const resp = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${city.lat}&lon=${city.lon}&appid=56b4f9108ee9c04db470ddaf8abcaea6`);
+    const resp = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${city.lat}&lon=${city.lon}&appid=56b4f9108ee9c04db470ddaf8abcaea6`);
     return resp.json();
   }));
   const result = [];
