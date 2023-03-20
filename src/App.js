@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Weather from './components/Weather';
-import WeatherDetails from './components/WeatherDetails';
-import Home from './components/Home';
-import Pollution from './components/Pollution';
-import PollutionDetails from './components/PollutionDetails';
+import Weather from './pages/Weather';
+import WeatherDetails from './pages/WeatherDetails';
+import Home from './pages/Home';
+import Pollution from './pages/Pollution';
+import PollutionDetails from './pages/PollutionDetails';
 import './App.css';
 
 function App() {
